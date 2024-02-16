@@ -1,0 +1,37 @@
+{
+    "intents":[
+        {"tag": "greetings",
+        "patterns": ["hello","hi","greetings","hey have a good day","what's up"],
+        "responses":["Hello!","Hi!","What can i do for you?"],
+        "context": [""]},
+        {"tag": "off",
+        "patterns": ["goodbye","bye","see you later","thank you","rest","now you can stop","shut down","stop"],
+        "responses":["See you later!","Have a good day!","Goodbye!","Bye! See you again later!"],
+        "context": [""]},
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "responses": ["My pleasure", "You're Welcome"],
+         "context": [""]},
+        {"tag": "introduce",
+        "patterns":["Who are you","Introduce yourself","Say something","What's your name","Where are you from?"],
+        "responses":["I am an AI chatbot. I was developed by Nguyen Viet Trung from NEU, IT63B"],
+        "context": [""]
+        },
+        {"tag":"menu",
+        "patterns":["Solve equation","Open Math Menu","Giai phuong trinh","Mo menu giai toan","Giai toan"],
+        "responses":["Chọn 1 trong các lựa chọn sau để tiếp tục: \n1: Giải phương trình bậc nhất \n2: Giải phương trình bậc hai\n 3:Giải phương trình bậc 3\nStop: Dừng ở trong menu"],
+        "context":[""]},
+        {"tag":"math1",
+        "patterns":["1","one","bac 1","bac nhat","Giai phuong trinh bac nhat"],
+        "responses":["Phương trình bậc nhất có dạng aX + b = 0\n Nhập giá trị a: **\n Nhập giá trị b:"],
+        "context":["input_a","input_b","response"]},
+        {"tag":"math2",
+        "patterns":["2","two","bac 2","bac hai","Giai phuong trinh bac hai"],
+        "responses":["Phương trình bậc nhất có dạng aX^2 + bX + c = 0\n Nhập giá trị a: **\n Nhập giá trị b: \n Nhập giá trị c:"],
+        "context":[""]},
+        {"tag":"math3",
+        "patterns":["3","three","bac 3","bac ba","Giai phuong trinh bac ba"],
+        "responses":["Phương trình bậc nhất có dạng aX^3 + bX^2 + cX+ d = 0\n Nhập giá trị a: **\n Nhập giá trị b: \n Nhập giá trị c: \n Nhập giá trị d: "],
+        "context":[""]}
+    ]
+}
