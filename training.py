@@ -62,8 +62,21 @@ model.add(tf.keras.layers.Dense(64, activation = 'relu'))
 model.add(tf.keras.layers.Dropout(0.5))
 model.add(tf.keras.layers.Dense(len(trainY[0]), activation='softmax'))
 
-sgd = tf.keras.optimizers.SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
-model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+adam = tf.keras.optimizers.Adam(
+    learning_rate=0.001,
+    beta_1=0.9,
+    beta_2=0.999,
+    epsilon=1e-07,
+    amsgrad=False,
+    weight_decay=None,
+    clipnorm=None,
+    clipvalue=None,
+    global_clipnorm=None,
+    use_ema=False,
+    ema_momentum=0.99,
+    ema_overwrite_frequency=None,
+    jit_compile=True)
+model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
 
 hist = model.fit(np.array(trainX), np.array(trainY), epochs=200, batch_size=5, verbose=1)
 model.save('chatbot_model.h5', hist)

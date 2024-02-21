@@ -3,7 +3,7 @@ import json
 import pickle
 import numpy as np
 import nltk
-
+import math
 from nltk.stem import WordNetLemmatizer
 from keras.models import load_model
 
@@ -67,16 +67,27 @@ def solveEq(arr):
         b = float(arr[1])     
         c = float(arr[2])
         delta = pow(b,2) - 4*a*c
+        x1 = float(-b - math.sqrt(delta))/(2*a)
+        x2 = float(-b + math.sqrt(delta))/(2*a)
         if(a == 0):
             print("Phương trình được cho không phải bậc 2, hãy thử lại sau")
-        elif():
-    
-
+        elif(delta < 0):
+            print("Phương trình có 2 nghiệm phức là: %fi và %fi" % (x1, x2))
+        elif(delta == 0):
+            print("Phương trình có nghiệm kép %f"%(-b/(2*a)))
+        else:
+            print("Phương trình có 2 nghiệm là %f và %f")
+    else:
+        a = float(arr(0))
+        b = float(arr(1))
+        c = float(arr(2))
+        d = float(arr(3))
+        
 while True:
     message = input("")
     ints = predict_class (message)
     res = get_response (ints, intents)
-    
+    print(res)
     res = res.split("**")
 
 
@@ -89,8 +100,6 @@ while True:
             numerical_input.append(temp)
     
         solveEq(numerical_input)
-
-    else: 
-        print (res[0])
+    
 
     
