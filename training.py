@@ -81,5 +81,3 @@ model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accurac
 hist = model.fit(np.array(trainX), np.array(trainY), epochs=200, batch_size=5, verbose=1)
 model.save('chatbot_model.h5', hist)
 print('Done')
-
-                 

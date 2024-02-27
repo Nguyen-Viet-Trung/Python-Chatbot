@@ -42,6 +42,7 @@ def predict_class (sentence):
     return return_list
 
 def get_response(intents_list, intents_json):
+    print(intents_list)
     tag = intents_list[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
@@ -67,12 +68,15 @@ def solveEq(arr):
         b = float(arr[1])     
         c = float(arr[2])
         delta = pow(b,2) - 4*a*c
-        x1 = float(-b - math.sqrt(delta))/(2*a)
-        x2 = float(-b + math.sqrt(delta))/(2*a)
+        x1 = float(-b - math.sqrt(abs(delta)))/(2*a)
+        x2 = float(-b + math.sqrt(abs(delta)))/(2*a)
         if(a == 0):
             print("Phương trình được cho không phải bậc 2, hãy thử lại sau")
         elif(delta < 0):
-            print("Phương trình có 2 nghiệm phức là: %fi và %fi" % (x1, x2))
+            xphuc1 = float(math.sqrt(abs((math.pow(b,2)/(4*a))-c)/a))
+            xphuc2 = -xphuc1
+            x3 = float((b)/(2*a))
+            print("Phương trình có 2 nghiệm phức là: %fi - %f và %fi - %f" % (xphuc1, x3 , xphuc2 , x3))
         elif(delta == 0):
             print("Phương trình có nghiệm kép %f"%(-b/(2*a)))
         else:
@@ -84,22 +88,22 @@ def solveEq(arr):
         d = float(arr(3))
         
 while True:
-    message = input("")
+    message = input("Your search: ")
     ints = predict_class (message)
     res = get_response (ints, intents)
-    print(res)
-    res = res.split("**")
+    resmath = res.split("**")
 
-
-    if len(res) > 1:
+    if len(resmath) > 1:
 
         numerical_input = []
 
-        for i in range(len(res)):
-            temp = input(res[i])
+        for i in range(len(resmath)):
+            temp = input(resmath[i])
             numerical_input.append(temp)
     
         solveEq(numerical_input)
-    
+    else:
+        print(res)
+        
 
     
